@@ -1,17 +1,23 @@
+package SceneRenderModule;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import SceneDataModule.*;
 
-public class FrameForGame extends JFrame implements GameInfoSetting{
+
+class FrameForGame extends JFrame implements GameInfoSetting{
 	
 		public FrameForGame() {}
-
+		//Get MapData Form SDM
+		BasicBlock [][] Scene = SDM_API.GetMapData();
 		public void GameInit(){
 			this.setTitle("Background Render System");
 			this.setSize(FrameWidth, FrameHeight);
 			this.setLayout(new FlowLayout());
 			this.setDefaultCloseOperation(3);
+			
+			
 			
 			JPanel panel = new Panel();
 			panel.setPreferredSize(new Dimension(GameAreaWidth, GameAreaHeight));
@@ -100,8 +106,8 @@ public class FrameForGame extends JFrame implements GameInfoSetting{
 				super.paint(g);
 				for(int i = Character.getI()-2; i <= Character.getI()+2; i++){
 					for(int j = Character.getJ()-3; j <= Character.getJ()+3; j++){
-						if(i>=0 && j>=0 && i<LoadMapFromFile.Scene.length && j<LoadMapFromFile.Scene[0].length){
-							ImageIcon icon = MatchToImages(LoadMapFromFile.Scene[i][j].type);
+						if(i>=0 && j>=0 && i<Scene.length && j<Scene[0].length){
+							ImageIcon icon = MatchToImages(Scene[i][j].type);
 							/*
 							 * ¡ö ¡ö|¡ö ¡ö ¡ö  
 							 * ¡ö ¡ö|¡õ ¡ö ¡ö

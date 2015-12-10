@@ -1,4 +1,8 @@
-public class Character extends Thread implements GameInfoSetting{
+package SceneRenderModule;
+
+import SceneDataModule.*;
+
+class Character extends Thread implements GameInfoSetting{
 	
 		//Keep the character stay in the center of the screen
 		static int ScreenX = GameAreaWidth/2;

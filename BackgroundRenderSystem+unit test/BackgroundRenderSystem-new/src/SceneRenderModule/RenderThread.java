@@ -1,3 +1,4 @@
+package SceneRenderModule;
 import javax.swing.JPanel;
 
 class RenderThread extends Thread{

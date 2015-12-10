@@ -1,3 +1,4 @@
+package SceneDataModule;
 import javax.swing.ImageIcon;
 
 public interface GameInfoSetting {
@@ -12,9 +13,10 @@ public interface GameInfoSetting {
 	 * 
 	 */
 	class BasicBlock{
-		int type;
-		static int BlockSize = 100;
+		public int type;
+		public static int BlockSize = 100;
 	}
+	
 	
 	String path = "./maps/map-1.txt";
 	
@@ -46,5 +48,6 @@ public interface GameInfoSetting {
 	ImageIcon pic5 = new ImageIcon("images/5.png");
 	
 	ImageIcon[] images = {pic1, pic2, pic3, pic4 ,pic5}; 
-
+	
 }
+

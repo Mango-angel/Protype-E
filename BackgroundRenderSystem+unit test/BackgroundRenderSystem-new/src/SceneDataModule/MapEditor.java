@@ -1,3 +1,4 @@
+package SceneDataModule;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 
-public class MapEditor extends JFrame implements GameInfoSetting{
+class MapEditor extends JFrame implements GameInfoSetting{
 
 		JComboBox<ImageIcon> box;                                        //"Save" button
 		static int Row, Col, count = 0;

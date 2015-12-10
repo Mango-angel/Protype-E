@@ -1,4 +1,7 @@
-public class Start implements GameInfoSetting{
+package SceneRenderModule;
+import SceneDataModule.*;
+
+class Start implements GameInfoSetting{
 	
 	public static void main(String[] args) {
 		
@@ -13,13 +16,12 @@ public class Start implements GameInfoSetting{
 		                      
 		
 		if(StartGame){
-			LoadMapFromFile.readfile(path);
+			SDM_API.LoadMap();
 			FrameForGame frame = new FrameForGame();
 			frame.GameInit();
 		}
 		else{
-			MapEditor mapEdit = new MapEditor();
-			mapEdit.MapEditorInit();
+			SDM_API.CreatMapEditor();
 		}
 	}
 	

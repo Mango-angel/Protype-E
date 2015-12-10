@@ -1,11 +1,12 @@
-import java.io.*;
-import javax.swing.JFrame;
+package SceneDataModule;
 
-public class LoadMapFromFile implements GameInfoSetting{
+import java.io.*;
+
+class LoadMapFromFile implements GameInfoSetting{
 		static int Row, Col, count = 0;
-		static BasicBlock [][] Scene;
+		public static BasicBlock [][] Scene;
 		
-		static void readfile(String path){
+		public static void readfile(String path){
 			try{
 				BufferedReader in = new BufferedReader(new FileReader(path));
 				String str;
