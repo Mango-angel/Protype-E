@@ -1,12 +1,13 @@
-package SceneRenderModule;
+package DynamicObjectModule;
 
 import SceneDataModule.*;
 
-class Character extends Thread implements GameInfoSetting{
+public class Character extends Thread implements GameInfoSetting{
 	
 		//Keep the character stay in the center of the screen
 		static int ScreenX = GameAreaWidth/2;
 		static int ScreenY = GameAreaHeight/2;
+		static int step = 5;
 		
 		//Initialize fist postion of the character in the map
 		static int posX = 2500;
@@ -15,8 +16,6 @@ class Character extends Thread implements GameInfoSetting{
 		//Character Offset
 		static int offsetX = 2250;
 		static int offsetY = 850;
-
-		static int step = 5;
 		
 		//Moving status Flag
 		static boolean up = false;
@@ -24,6 +23,10 @@ class Character extends Thread implements GameInfoSetting{
 		static boolean left = false;
 		static boolean right = false;
 		
+		public static int getPosX(){
+			return posX;
+		}
+
 		//Character's postion in the array of the Map
 		public static int getI(){
 			return (posY - (CharacterSize/2)) / BasicBlock.BlockSize;

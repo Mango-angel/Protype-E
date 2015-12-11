@@ -1,11 +1,9 @@
 package SceneRenderModule;
-
+import javax.swing.JPanel;
 
 public class SRM_API {
-	public static void SetCharacterXY(int x, int y)
+	public static void RenderScene(JPanel panel)
 	{
-		//int LastPosX = 
-		//int LastPosY;
-		
+		panel.repaint();
 	}
 }
