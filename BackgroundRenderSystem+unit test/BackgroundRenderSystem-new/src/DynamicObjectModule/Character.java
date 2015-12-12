@@ -29,10 +29,14 @@ public class Character extends Thread implements GameInfoSetting{
 
 		//Character's postion in the array of the Map
 		public static int getI(){
+			//PositionY < 0 ,assert
+			assert posY - (CharacterSize/2) >= 0 : "Chacracter's postionY < 0.(LoadMapFromFile.java :32)"; 
 			return (posY - (CharacterSize/2)) / BasicBlock.BlockSize;
 		}
 
 		public static int getJ(){
+			//PositionX < 0 ,assert
+			assert posX - (CharacterSize/2) >= 0 : "Chacracter's postionX < 0.(LoadMapFromFile.java :37)"; 
 			return (posX - (CharacterSize/2)) / BasicBlock.BlockSize;
 		}
 
@@ -44,8 +48,12 @@ public class Character extends Thread implements GameInfoSetting{
 					if(left){
 						if(getJ() ==  2)
 							return;
+						
 						posX = posX - step;
+						assert posX >= 0 : "PosX < 0.(LoadMapFromFile.java :52)";
+						
 						offsetX = offsetX - step;
+						assert offsetX >= 0 : "offsetX < 0.(LoadMapFromFile.java :53)";
 						/*
 						if(posX == 2500)
 							System.out.println("offsetX = " + offsetX);
@@ -68,7 +76,10 @@ public class Character extends Thread implements GameInfoSetting{
 					return;
 				}
 				posY = posY - step;            //Change character'postion in the map
+				assert posY >= 0 : "posY < 0.(LoadMapFromFile.java :78)";
+				
 				offsetY = offsetY - step;      //Updata the offset 
+				assert offsetY >= 0 : "offsetY < 0.(LoadMapFromFile.java :81)";
 				/*
 				if(posY == 1000)
 					System.out.println("-->offsetY = " + offsetY);
@@ -83,7 +94,10 @@ public class Character extends Thread implements GameInfoSetting{
 						if(getJ() ==  2)
 							return;
 						posX = posX - step;
+						assert posX >= 0 : "PosX < 0.(LoadMapFromFile.java :52)";
+						
 						offsetX = offsetX - step;
+						assert offsetX >= 0 : "offsetX < 0.(LoadMapFromFile.java :53)";
 						/*
 						if(posX == 2500)
 							System.out.println("offsetX = " + offsetX);
@@ -118,7 +132,10 @@ public class Character extends Thread implements GameInfoSetting{
 				if(getJ() ==  2)
 					return;
 				posX = posX - step;
+				assert posX >= 0 : "PosX < 0.(LoadMapFromFile.java :52)";
+				
 				offsetX = offsetX - step;
+				assert offsetX >= 0 : "offsetX < 0.(LoadMapFromFile.java :53)";
 				/*
 				if(posX == 2500)
 					System.out.println("offsetX = " + offsetX);

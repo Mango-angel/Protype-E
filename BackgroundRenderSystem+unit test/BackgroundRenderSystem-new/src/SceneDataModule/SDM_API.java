@@ -1,12 +1,19 @@
 package SceneDataModule;
 
+import java.io.FileNotFoundException;
+
 import SceneDataModule.GameInfoSetting.*;
 
 public class SDM_API {
 	
 	//load map
 	public static void LoadMap(){
-		LoadMapFromFile.readfile(GameInfoSetting.path);
+		try {
+			LoadMapFromFile.readfile(GameInfoSetting.path);
+		} catch (FileNotFoundException  e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
 	}
 	
 	//create a map editor

@@ -4,21 +4,33 @@ import java.io.*;
 
 class LoadMapFromFile implements GameInfoSetting{
 		static int Row, Col, count = 0;
-		public static BasicBlock [][] Scene;
+		static BasicBlock [][] Scene;
+		static BufferedReader in;
+		static String str;
 		
 		//Load map from file according to the path 
-		public static void readfile(String path){
+		public static BasicBlock[][] readfile(String path) throws FileNotFoundException {
+			assert path.length() != 0 : "Path of the map is not found.(LoadMapFromFile.java :11)";
+			
+			//Test for file exit or not
+			File file = new File(path);
+			assert file.exists() : "File not found from the path: \""+ path + "\"";
+			 
+
 			try{
-				BufferedReader in = new BufferedReader(new FileReader(path));
-				String str;
+				in = new BufferedReader(new FileReader(path));
+				str = in.readLine();
+				assert str.length() != 0 : "Read Row from the file of map failed.(LoadMapFromFile.java :16)";
+				Row = Integer.parseInt(str);
+				assert Row == RowNumber : "Map data(Row) from file does not match the info of 'GameInfoSeting.java'.(LoadMapFromFile.java :17)";
 				
 				str = in.readLine();
-				Row = Integer.parseInt(str);
-				str = in.readLine();
+				assert str != null : "Read Col from the file of map failed.(LoadMapFromFile.java :19)";
 				Col = Integer.parseInt(str);
+				assert Row == RowNumber : "Map data(Col) from file does not match the info of 'GameInfoSeting.java'.(LoadMapFromFile.java :22)";
 				
 				//Initialized the Scene(stored the data of map)
-				Scene = new BasicBlock[20][50];
+				Scene = new BasicBlock[RowNumber][ColNumber];
 				for(int i=0; i<Row; i++)
 					for(int j=0; j<Col; j++)
 						Scene[i][j] = new BasicBlock();
@@ -36,7 +48,9 @@ class LoadMapFromFile implements GameInfoSetting{
 				}
 
 			}catch(Exception e){
-				e.printStackTrace();
+				throw new FileNotFoundException("Failed to load map from the path: '" + path + "'");
+				//e.printStackTrace();
 			}
+			return Scene;
 		}
 }

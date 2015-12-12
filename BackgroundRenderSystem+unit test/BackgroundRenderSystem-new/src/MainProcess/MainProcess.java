@@ -13,8 +13,6 @@ public class MainProcess implements GameInfoSetting{
 public static void main(String[] args) {
 		
 		boolean StartGame = false;
-		
-		
 		/* 
 		 * Use this sentence to start game
 		 * Remove this sentence to enter Map Editor
@@ -23,13 +21,17 @@ public static void main(String[] args) {
 		                      
 		
 		if(StartGame){
+			//Load map
 			SDM_API.LoadMap();
-			
+			//Create a Window
 			MainWindow window = new MainWindow();
+			//Initialize the game
 			window.GameInit();
+			//Start the Render Thread
 			RenderThread_API.StartRenderThread();
 		}
 		else{
+			//Create a MapEditor
 			SDM_API.CreatMapEditor();
 		}
 	}

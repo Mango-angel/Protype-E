@@ -16,7 +16,7 @@ public class MainWindow extends JFrame implements GameInfoSetting {
 	public static PanelDraw GetPanel(){
 		return panel;
 	}
-	
+
 	public void GameInit(){
 		this.setTitle("Background Render System");
 		this.setSize(FrameWidth, FrameHeight);

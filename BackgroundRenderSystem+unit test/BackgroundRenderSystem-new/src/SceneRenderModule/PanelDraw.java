@@ -11,17 +11,36 @@ import SceneDataModule.GameInfoSetting.BasicBlock;
 import DynamicObjectModule.*;
 
 public class PanelDraw extends JPanel implements GameInfoSetting{
+	
+	//Get MapData Form SDM
+	BasicBlock [][] Scene = SDM_API.GetMapData();
+	
+	//Test
+	int[][] FindBlocksToDraw(){
+		int blocks[][] = new int[5][3];
+		for(int i = getI()-2; i <= getI()+2; i++){
+			for(int j = getJ()-3; j <= getJ()+3; j++){
+				if(i>=0 && j>=0 && i<Scene.length && j<Scene[0].length)
+					blocks[i][j] = Scene[i][j].type;
+			}
+		}
+		return blocks;
+	}
 
 	public void paint(Graphics g) {
 		super.paint(g);
 		
-		//Get MapData Form SDM
-		BasicBlock [][] Scene = SDM_API.GetMapData();
+		//检查Scene是否从SDM正确获取到地图数据
+		assert Scene.length == GameInfoSetting.RowNumber : "Get data of map from SDM is failed.(PanelDraw.java :32)";
+		assert Scene[0].length == GameInfoSetting.ColNumber : "Get data of map from SDM is failed.(PanelDraw.java :32)";
 		
 		for(int i = getI()-2; i <= getI()+2; i++){
 			for(int j = getJ()-3; j <= getJ()+3; j++){
 				if(i>=0 && j>=0 && i<Scene.length && j<Scene[0].length){
 					ImageIcon icon = MatchToImages(Scene[i][j].type);
+					
+					//When Images failed to match, assert
+					assert icon != null : "Match the data of map to the Image is failed.(PanelDraw.java :41)";
 					/*
 					 * ■ ■|■ ■ ■  
 					 * ■ ■|□ ■ ■
@@ -33,6 +52,10 @@ public class PanelDraw extends JPanel implements GameInfoSetting{
 					 * ■ ■ ■|■ ■ ■
 					 * 
 					 */
+					
+					//When Offset < 0, assert
+					assert DOM_API.GetVirtualCharacterXY(1).get(2) >= 0 : "OffsetX < 0.(PanelDraw.java :53)";
+					assert DOM_API.GetVirtualCharacterXY(1).get(3) >= 0 : "OffsetY < 0.(PanelDraw.java :53)";
 					g.drawImage(icon.getImage(), 
 							   ((GameAreaWidth/2)-BasicBlock.BlockSize/2)+((j-getJ())*BasicBlock.BlockSize)-((DOM_API.GetVirtualCharacterXY(1)).get(2) % BasicBlock.BlockSize), 
 							   ((GameAreaHeight/2)-BasicBlock.BlockSize/2)+((i-getI())*BasicBlock.BlockSize)-((DOM_API.GetVirtualCharacterXY(1)).get(3) % BasicBlock.BlockSize), 
