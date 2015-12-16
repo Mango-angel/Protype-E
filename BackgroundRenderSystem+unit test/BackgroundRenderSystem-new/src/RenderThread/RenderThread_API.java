@@ -11,7 +11,7 @@ public class RenderThread_API {
 		DOM_API.CreateCharacterForThisClient().start();
 
 		//start the Render thread
-		RenderThread renderthread = new RenderThread(MainWindow.GetPanel());
+		RenderThread renderthread = new RenderThread();
 		renderthread.start();
 	}
 }

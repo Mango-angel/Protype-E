@@ -4,19 +4,12 @@ import SceneRenderModule.PanelDraw;
 import SceneRenderModule.SRM_API;
 
 class RenderThread extends Thread{
-	PanelDraw panel;
-	public RenderThread(PanelDraw panel) {
-		
-		//Check Panel Received correctly
-		assert panel != null : "Panel is null.(RenderThread.java :11)";
-		
-		this.panel = panel;
-	}
+	public RenderThread() {}
 	
 	public void run() {
 		while(true){
 			//RenderScene by SRM
-			SRM_API.RenderScene(panel);
+			SRM_API.RenderScene();
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {

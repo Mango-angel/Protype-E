@@ -11,7 +11,7 @@ import SceneRenderModule.*;
 public class MainWindow extends JFrame implements GameInfoSetting {
 	public MainWindow() {}
 	
-	static PanelDraw panel;
+	private static PanelDraw panel;
 	
 	public static PanelDraw GetPanel(){
 		return panel;
@@ -24,7 +24,7 @@ public class MainWindow extends JFrame implements GameInfoSetting {
 		this.setDefaultCloseOperation(3);
 		
 		//Create Panel for Drawing
-		panel = new PanelDraw();
+		panel = new PanelDraw(new DOM_API());
 
 		panel.setPreferredSize(new Dimension(GameAreaWidth, GameAreaHeight));
 		panel.setBackground(Color.black);

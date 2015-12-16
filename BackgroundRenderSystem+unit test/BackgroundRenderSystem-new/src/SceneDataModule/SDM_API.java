@@ -8,12 +8,7 @@ public class SDM_API {
 	
 	//load map
 	public static void LoadMap(){
-		try {
-			LoadMapFromFile.readfile(GameInfoSetting.path);
-		} catch (FileNotFoundException  e) {
-			System.out.println(e);
-			e.printStackTrace();
-		}
+		LoadMapFromFile.readfile(GameInfoSetting.path);
 	}
 	
 	//create a map editor
@@ -27,9 +22,7 @@ public class SDM_API {
 	//call by SRM
 	//provide map data
 	public static BasicBlock [][] GetMapData(){
-		if(LoadMapFromFile.Scene != null)
-			return LoadMapFromFile.Scene;
-		return null;
+		return LoadMapFromFile.readfile(GameInfoSetting.path);
 	}
 	
 	

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Coverage Report</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+  <link rel='stylesheet' type='text/css' href='coverage.css'/>
+  <link rel='shortcut icon' type='image/png' href='logo.png'/>
+  <script type='text/javascript' src='coverage.js'></script>
+</head>
+<body>
+  <table id='packages'>
+    <caption>All Packages and Files<div style='font-size: smaller'>BackgroundRenderSystem-new\src</div></caption>
+    <tr>
+      <th style='cursor: col-resize' onclick='showHideAllFiles()'>Packages: 5</th>
+      <th onclick='location.reload()' style='cursor: n-resize' title='Click on the title for each metric to sort by size (total number of line segments, paths, or fields).'>Files: 10</th>
+      <th onclick='sortTables(1)' style='cursor: n-resize' title='Measures how much of the executable production code was exercised by tests.
+An executable line of code contains one or more executable segments.
+The percentages are calculated as 100*NE/NS, where NS is the number of segments and NE the number of executed segments.'>Line</th>
+    </tr>
+    <tr>
+      <td class='package click' onclick='showHideFiles(this)'>DynamicObjectModule</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='DynamicObjectModule/Character.html'>Character.java</a>       </td>
+            <td style='background-color:#e31c00' title='Line segments: 9/81'>11%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='DynamicObjectModule/DOM_API.html'>DOM_API.java</a>         </td>
+            <td style='background-color:#c33c00' title='Line segments: 7/30'>23%</td>
+          </tr>
+        </table>
+        <span>(2 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#da2500' title='Line segments: 16/111'>14%</td>
+    </tr>
+    <tr>
+      <td class='package'>MainProcess</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='MainProcess/MainProcess.html'>MainProcess.java</a>     </td>
+            <td style='background-color:#d92600' title='Line segments: 3/20'>15%</td>
+          </tr>
+        </table>
+        <span>(1 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#d92600' title='Line segments: 3/20'>15%</td>
+    </tr>
+    <tr>
+      <td class='package click' onclick='showHideFiles(this)'>SceneDataModule</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file interface'><a target='_blank' href='SceneDataModule/GameInfoSetting.html'>GameInfoSetting.java</a> </td>
+            <td style='background-color:#00ff00' title='Line segments: 8/8'>100%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='SceneDataModule/LoadMapFromFile.html'>LoadMapFromFile.java</a> </td>
+            <td style='background-color:#04fb00' title='Line segments: 57/58'>98%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='SceneDataModule/SDM_API.html'>SDM_API.java</a>         </td>
+            <td style='background-color:#926d00' title='Line segments: 3/7'>43%</td>
+          </tr>
+        </table>
+        <span>(3 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#11ee00' title='Line segments: 68/73'>93%</td>
+    </tr>
+    <tr>
+      <td class='package'>SceneRenderModule</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='SceneRenderModule/PanelDraw.html'>PanelDraw.java</a>       </td>
+            <td style='background-color:#54ab00' title='Line segments: 47/70'>67%</td>
+          </tr>
+        </table>
+        <span>(1 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#54ab00' title='Line segments: 47/70'>67%</td>
+    </tr>
+    <tr>
+      <td class='package click' onclick='showHideFiles(this)'>Test</td>
+      <td>
+        <table width='100%'>
+          <tr>
+            <td class='file class'><a target='_blank' href='Test/ModuleTestForSDM.html'>ModuleTestForSDM.java</a></td>
+            <td style='background-color:#00ff00' title='Line segments: 30/30'>100%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='Test/ModuleTestForSRM.html'>ModuleTestForSRM.java</a></td>
+            <td style='background-color:#00ff00' title='Line segments: 40/40'>100%</td>
+          </tr>
+          <tr>
+            <td class='file class'><a target='_blank' href='Test/SuiteTestCases.html'>SuiteTestCases.java</a>  </td>
+            <td style='background-color:#ff0000' title='Line segments: 0/3'>0%</td>
+          </tr>
+        </table>
+        <span>(3 source files)</span>
+  </td>
+      <td class='pt' style='background-color:#0af500' title='Line segments: 70/73'>96%</td>
+    </tr>
+    <tr class='total'>
+      <td>Total</td><td>&nbsp;</td>
+      <td class='pt' style='background-color:#699600' title='Line segments: 204/347'>59%</td>
+    </tr>
+  </table>
+  <br/>Redundant tests:
+  <ol title="Tests are regarded as redundant when they don't cover any additional line segments or paths that haven't already been covered by a previous test.
+Note this means the list of redundant tests depends on the order of test execution.
+Such a test can be removed without weakening the test suite, as long as another test for the same scenario performs its assertions.">
+    <li>LoadMapFromFileTest.IllegalFilePathForGetMapSize</li>
+    <li>LoadMapFromFileTest.FormatGetMapSize</li>
+    <li>PanelDrawTest.TestGetIValue</li>
+    <li>PanelDrawTest.TestGetJValue</li>
+  </ol>
+  <p>
+    <a href='http://jmockit.org'><img src='logo.png'></a>
+    Generated on Wed Dec 16 17:38:01 CST 2015
+  </p>
+</body>
+</html>

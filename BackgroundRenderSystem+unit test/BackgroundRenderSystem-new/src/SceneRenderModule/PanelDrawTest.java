@@ -2,8 +2,9 @@ package SceneRenderModule;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-import java.util.Collection;
+import java.awt.Graphics;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Vector;
 
 import org.junit.After;
@@ -11,70 +12,48 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
-import DynamicObjectModule.Character;
 import DynamicObjectModule.DOM_API;
 
-/*
-class Stub_DOM extends DOM_API{
-	public static Vector<Integer> GetVirtualCharacterXY(int ClintID){
-		Vector pos = new Vector<Integer>();
-		pos.add(Character.posX);
-		pos.add(Character.posY);
-		pos.add(Character.offsetX);
-		pos.add(Character.offsetY); 
-		return pos;
-	}
-}
-*/
-//@RunWith(Parameterized.class)
-class Stub_PanelDraw extends PanelDraw{
-	private static int x;
-	private static int y;
-	
-	/*
-	@Parameters  
-    public static Collection data() {
-        return Arrays.asList(new Object[][]{{5, 9},{8, 7},{3, 6}});
-    }
- 	*/
-	
-	private static int getI(){
-		return 10;
-	}
-	
-	private static int getJ(){
-		return 10;
-	}
-}
-
-//@RunWith(Parameterized.class)
 public class PanelDrawTest {
-	
-	PanelDraw pd = new PanelDraw();
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	//Test the Return value from getI()
 	@Test
-	public void test() {
-		assertEquals(5, pd.FindBlocksToDraw().length);
+	public void TestGetIValue() throws Exception{
+		PanelDraw PD = new PanelDraw(new DOM_API());
+		Method M = PD.getClass().getDeclaredMethod("getI");
+		M.setAccessible(true);
+		assertEquals(9, M.invoke(PD));
 	}
-
+	
+	//Test the Return value from getJ()
+	@Test
+	public void TestGetJValue() throws Exception{
+		PanelDraw PD = new PanelDraw(new DOM_API());
+		Method M = PD.getClass().getDeclaredMethod("getJ");
+		M.setAccessible(true);
+		assertEquals(24, M.invoke(PD));
+	}
+	
+	//Test whitch blocks will be painted by Paint()
+	@Test
+	public void TestGetArrounds() throws Exception{
+		Vector<arround> compare = new Vector<arround>();
+		for(int i = 7; i <= 11; i++)
+			for(int j = 21; j <= 27; j++){
+				compare.add(new arround(i,j));
+				
+				}
+	
+		PanelDraw PD = new PanelDraw(new DOM_API());
+		Method M = PD.getClass().getDeclaredMethod("GetArrounds");
+		M.setAccessible(true);
+		Vector<arround> arrounds =  (Vector<arround>) M.invoke(PD);
+		
+		for(int i = 0; i < 35; i++){
+			assertEquals(compare.get(i).GetX(), arrounds.get(i).GetX());
+			assertEquals(compare.get(i).GetY(), arrounds.get(i).GetY());
+		}
+			
+	}
 }
